@@ -15,15 +15,8 @@ Clone this repository or download the database.py file to your computer.
 Run the database.py script directly or in your terminal or command prompt.
 Upon running the script, you will be presented with a simple menu:
 
-╔════════════════════════════════════════╗
-║                 Pybase                 ║
-╠════════════════════════════════════════╣
-║   1. Add User                          ║
-║   2. Get User by Name                  ║
-║   3. Display All Users                 ║
-║   4. Edit User                         ║
-║   5. Exit                              ║
-╚════════════════════════════════════════╝
+https://i.ibb.co/Wxd5mGT/image-2023-08-04-033238641.png
+
 To add a new user, select option 1 and follow the prompts to enter user details.
 To search for a user by name, select option 2 and enter the name you want to search for.
 To display all users in the database, select option 3.

@@ -34,4 +34,4 @@ To exit the program, select option 5.
 This project does not have any external dependencies beyond the Python standard library.
 
 # Logs
-The program logs its activities in the user_database_log.txt file. The log includes records of user additions, searches, displays, and edits.
+The program logs its activities in the Pybase_log.txt file. The log includes records of user additions, searches, displays, and edits.

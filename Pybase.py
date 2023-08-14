@@ -124,10 +124,16 @@ def edit_user(user):
     old_value = user[field_to_edit]
     new_value = input(f"Enter the new value for {field_to_edit} (current: {old_value}): ")
 
-    user[field_to_edit] = new_value
-    save_database(load_active_database())
+    data = load_active_database()
+    for i, u in enumerate(data):
+        if u['Name'] == user['Name']:
+            data[i][field_to_edit] = new_value
+            break
+    save_database(data)
+
     log_event(f"User edited: Name={user['Name']}, Field={field_to_edit}, Old Value={old_value}, New Value={new_value}")
     print("\nUser updated successfully!")
+
 
 def create_backup():
     data = load_active_database()
@@ -160,37 +166,50 @@ def delete_user():
 def pause_terminal():
     input("\nPress Enter to continue...")
 
+def main_menu():
+    os.system("cls" if os.name == "nt" else "clear")
+    print("╔═════════════════════════════════════════╗")
+    print("║          User Database Program          ║")
+    print("╠═════════════════════════════════════════╣")
+    print("║   1. User Management                    ║")
+    print("║   2. JSON Management                    ║")
+    print("║   3. Exit                               ║")
+    print("╚═════════════════════════════════════════╝")
+
+def user_management_menu():
+    os.system("cls" if os.name == "nt" else "clear")
+    print("╔═════════════════════════════════════════╗")
+    print("║          User Management                ║")
+    print("╠═════════════════════════════════════════╣")
+    print("║   1. Add User                           ║")
+    print("║   2. Get User by Name                   ║")
+    print("║   3. Display All Users                  ║")
+    print("║   4. Edit User                          ║")
+    print("║   5. Delete User                        ║")
+    print("║   6. Back                               ║")
+    print("╚═════════════════════════════════════════╝")
+
+def json_management_menu():
+    os.system("cls" if os.name == "nt" else "clear")
+    print("╔═════════════════════════════════════════╗")
+    print("║          JSON Management                ║")
+    print("╠═════════════════════════════════════════╣")
+    print("║   1. Export Data to JSON                ║")
+    print("║   2. Import Data from JSON              ║")
+    print("║   3. Create Backup                      ║")
+    print("║   4. Back                               ║")
+    print("╚═════════════════════════════════════════╝")
+
 if __name__ == "__main__":
     log_event("Program opened")
     while True:
-        os.system("cls" if os.name == "nt" else "clear")
-
-        print("╔═════════════════════════════════════════╗")
-        print("║          User Database Program          ║")
-        print("╠═════════════════════════════════════════╣")
-        print("║   1. User Management                    ║")
-        print("║   2. JSON Management                    ║")
-        print("║   3. Exit                               ║")
-        print("╚═════════════════════════════════════════╝")
-
+        main_menu()
         choice = input("\nEnter your choice (1/2/3): ")
         log_event(f"Selected option: {choice}")
 
         if choice == "1":
             while True:
-                os.system("cls" if os.name == "nt" else "clear")
-
-                print("╔═════════════════════════════════════════╗")
-                print("║          User Management                ║")
-                print("╠═════════════════════════════════════════╣")
-                print("║   1. Add User                           ║")
-                print("║   2. Get User by Name                   ║")
-                print("║   3. Display All Users                  ║")
-                print("║   4. Edit User                          ║")
-                print("║   5. Delete User                        ║")
-                print("║   6. Back                               ║")
-                print("╚═════════════════════════════════════════╝")
-
+                user_management_menu()
                 sub_choice = input("\nEnter your choice (1/2/3/4/5/6): ")
                 log_event(f"Selected sub-option: {sub_choice}")
 
@@ -210,6 +229,7 @@ if __name__ == "__main__":
                         log_event(f"User searched by name: {name}")
                         print("\nMatching users found:")
                         for user in users:
+                            print("\nUser:")
                             print(f"Name: {user['Name']}")
                             print(f"Age: {user['Age']}")
                             print(f"Email: {user['Email']}")
@@ -244,17 +264,7 @@ if __name__ == "__main__":
 
         elif choice == "2":
             while True:
-                os.system("cls" if os.name == "nt" else "clear")
-
-                print("╔═════════════════════════════════════════╗")
-                print("║          JSON Management                ║")
-                print("╠═════════════════════════════════════════╣")
-                print("║   1. Export Data to JSON                ║")
-                print("║   2. Import Data from JSON              ║")
-                print("║   3. Create Backup                      ║")
-                print("║   4. Back                               ║")
-                print("╚═════════════════════════════════════════╝")
-
+                json_management_menu()
                 sub_choice = input("\nEnter your choice (1/2/3/4): ")
                 log_event(f"Selected sub-option: {sub_choice}")
 

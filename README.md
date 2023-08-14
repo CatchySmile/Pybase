@@ -19,8 +19,6 @@ Pybase is a simple command-line application that allows you to manage a database
 Upon running the script, you will be presented with a user-friendly menu that categorizes different functionalities:
 
 ![Pybase Main Menu](https://i.ibb.co/FqDPZJP/Screenshot-2023-08-14-022210.png)
-![Pybase Sub Menu One](https://i.ibb.co/VwCR8pH/Screenshot-2023-08-14-022222.png)
-![Pybase Sub Menu Two](https://i.ibb.co/J3DvdQB/Screenshot-2023-08-14-022229.png)
 
 ### User Management
 - Add a new user: Enter user details, including name, age, email, address, school, and other information.
